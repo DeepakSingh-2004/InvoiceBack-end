@@ -50,11 +50,11 @@ public class InventoryController {
     return ResponseEntity.status(HttpStatus.CREATED).body(savedProduct);
  }
 
-//    @PostMapping("/purchase/{productId}")
-//     public String purchase(@RequestBody Long productId, @RequestParam int quantity, @RequestParam String vendor){
-//       inventoryService.purchaseProduct(productId, quantity, vendor);
-//       return "Purchase recorded successfully!";
-//  }
+    @PostMapping("/purchase/{productId}")
+     public String purchase(@RequestBody Long productId, @RequestParam int quantity, @RequestParam String vendor){
+       inventoryService.purchaseProduct(productId, quantity, vendor);
+       return "Purchase recorded successfully!";
+  }
 
 @PostMapping("/purchase")
     public ResponseEntity<String> purchaseProduct(@RequestBody PurchaseRequest request) {

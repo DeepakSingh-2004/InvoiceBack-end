@@ -9,6 +9,7 @@ public class AgencyApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AgencyApplication.class, args);
 		System.out.println("Inventory Application is Running");
+		System.out.println("Inventory Application is Running123");
 
 
 
