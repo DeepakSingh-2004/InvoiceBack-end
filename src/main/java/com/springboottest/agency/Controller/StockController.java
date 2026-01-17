@@ -24,7 +24,7 @@ public class StockController {
     private InventoryService inventoryService;
 
 
-    @PostMapping("/stock/add/{itemId}")
+    @PostMapping("/stock/add/{vendorId}")
     public ResponseEntity<?> addStock(@PathVariable Long vendorId,
                                       @RequestBody StockManagement stock) {
 
