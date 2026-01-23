@@ -1,6 +1,6 @@
 package com.springboottest.agency.Service;
 
-import java.net.PasswordAuthentication;
+// import java.net.PasswordAuthentication;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import com.springboottest.agency.Entity.UserEntity;
 import com.springboottest.agency.Repository.UserRepo;
 import com.springboottest.agency.Security.JwtHelper;
+
+import jakarta.annotation.PostConstruct;
 
 @Service
 public class AuthService {
@@ -50,6 +52,19 @@ public class AuthService {
     response.put("token", token);
     // return (ResponseEntity<Map<String, Object>>) response;
     return ResponseEntity.ok(response);
+}
+
+    @PostConstruct
+public void createTestUser() {
+    if (userRepo.findByUsername("deepak") == null) {
+        UserEntity user = new UserEntity();
+        user.setUsername("deepak");
+        user.setPassword(passwordEncoder.encode("deepak123"));
+        user.setRole("ADMIN");
+        userRepo.save(user);
+    }
+
+
 
 }
 

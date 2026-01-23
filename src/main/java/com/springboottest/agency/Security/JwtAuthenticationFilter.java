@@ -112,29 +112,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         String uri = request.getRequestURI();
         System.out.println("JWT FILTER → " + uri);
 
-        // // ✅ SKIP JWT FOR PUBLIC APIs
-        // // if (uri.startsWith("/inventory/vendor")
-        //       if  (uri.startsWith("/vendor")
-        //         || uri.startsWith("/auth")
-        //         || uri.startsWith("/user")) {
-
-        //     filterChain.doFilter(request, response);
-        //     return;
-        // }
-
-        // String authHeader = request.getHeader("Authorization");
-
-        // if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-        //     filterChain.doFilter(request, response); // ❗ don't block
-        //     return;
-        // }
-
-        // String token = authHeader.substring(7);
-        // String username;
-
-
         // ✅ ONLY AUTH / LOGIN APIs ARE PUBLIC
-        if (uri.startsWith("/auth") || uri.startsWith("/login")) {
+        if (uri.startsWith("/auth") ) {
             filterChain.doFilter(request, response);
             return;
         }
@@ -143,9 +122,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         String authHeader = request.getHeader("Authorization");
 
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-            filterChain.doFilter(request, response); // Spring Security will return 401
-            return;
-        }
+             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Missing JWT");
+        return;
+         }
 
         String token = authHeader.substring(7);
         String username;

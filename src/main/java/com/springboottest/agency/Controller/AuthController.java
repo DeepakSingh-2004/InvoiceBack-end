@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
-// @CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:5173")
 public class AuthController {
 
     // @Autowired
@@ -29,7 +29,8 @@ public class AuthController {
     // ✅ LOGIN API
     @PostMapping("/login")
         public ResponseEntity<?> loginUser(@RequestBody UserEntity loginDetail) {
-        return authService.loginGenerateToken(loginDetail);  
+            System.out.println("🔥 AUTH CONTROLLER HIT 🔥");
+            return authService.loginGenerateToken(loginDetail);  
 }
 
 
