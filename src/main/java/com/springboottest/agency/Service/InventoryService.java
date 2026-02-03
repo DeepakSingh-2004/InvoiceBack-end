@@ -54,10 +54,15 @@ public class InventoryService {
 
 
     // ✅ Get all products
-    public ResponseEntity<List<ProductUser>> getAllProducts() {
-        List<ProductUser> products = productRepo.findAll();
-        return ResponseEntity.ok(products);
-    }
+    // public ResponseEntity<List<ProductUser>> getAllProducts() {
+    //     List<ProductUser> products = productRepo.findAll();
+    //     return ResponseEntity.ok(products);
+    // }
+
+    public List<ProductUser> getAllProducts() {
+    return productRepo.findAll();
+}
+
 
       // ✅ Add a product
     public ProductUser addProduct(ProductUser productUser) {

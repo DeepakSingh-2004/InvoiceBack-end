@@ -103,7 +103,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         this.userDetailsService = userDetailsService;
     }
 
-    @Override
+   @Override
+protected boolean shouldNotFilter(HttpServletRequest request) {
+  String path = request.getServletPath();
+  return path.startsWith("/auth/")
+      || path.startsWith("/inventory/");
+}
+
+
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
                                     FilterChain filterChain)

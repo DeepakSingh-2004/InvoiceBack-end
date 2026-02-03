@@ -41,10 +41,16 @@ public class InventoryController {
 
 
     // ✅ Get all products
+    // @GetMapping("/products")
+    // public ResponseEntity<?> getAllProducts(){
+    //     return ResponseEntity.ok(inventoryService.getAllProducts());
+    // }
+
     @GetMapping("/products")
-    public ResponseEntity<?> getAllProducts(){
-        return ResponseEntity.ok(inventoryService.getAllProducts());
-    }
+public ResponseEntity<List<ProductUser>> getAllProducts() {
+    return ResponseEntity.ok(inventoryService.getAllProducts());
+}
+
 
 
 
