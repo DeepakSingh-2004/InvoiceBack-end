@@ -31,7 +31,7 @@ public class StockController {
         return ResponseEntity.ok(inventoryService.addStock(vendorId, stock));
     }
 
-    @GetMapping("/stock/all")
+    @GetMapping("/all")
     public ResponseEntity<List<StockManagement>> getAllStock() {
         return ResponseEntity.ok(inventoryService.getAllStock());
     }

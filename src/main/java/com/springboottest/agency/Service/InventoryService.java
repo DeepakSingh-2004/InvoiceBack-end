@@ -207,6 +207,21 @@ public boolean deleteById(Long id){
     }
 
 
+    // ====================== ITEM SERVICE ======================
+
+
+        public List<PurchaseUser> getAllPurchases() {
+  return purchaseRepo.findAll();
+}
+
+    // ====================== SALE SERVICE ======================
+
+    public List<SaleUser> getAllSale() {
+        return  saleRepo.findAll();
+
+    }
+
+
 
     // ====================== STOCK SERVICE ======================
 

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springboottest.agency.Entity.ItemsUser;
+import com.springboottest.agency.Entity.PurchaseUser;
 import com.springboottest.agency.Service.InventoryService;
 
 @RestController
@@ -27,10 +28,10 @@ public class PurchaseController {
         return ResponseEntity.ok(inventoryService.addItem(item));
     }
 
-    @GetMapping("/item/all")
-    public ResponseEntity<List<ItemsUser>> getAllItem() {
-        return ResponseEntity.ok(inventoryService.getAllItem());
-    }
+    @GetMapping("/all")
+  public ResponseEntity<List<PurchaseUser>> getAllPurchases() {
+    return ResponseEntity.ok(inventoryService.getAllPurchases());
+  }
 
     @DeleteMapping("/item/{id}")
     public ResponseEntity<String> deleteItem(@PathVariable Long id) {
