@@ -30,7 +30,7 @@ public class SaleController {
         public String sale(@PathVariable Long id, 
                       @RequestBody SaleRequest saleRequest ) {
 
-            inventoryService.saleProduct(id, saleRequest.getQuantity(), saleRequest.getProductPrice());
+            inventoryService.saleProduct(id, saleRequest.getQuantity(), saleRequest.getSellingPrice());
             return "✅Sale recorded successfully!";
    
         }

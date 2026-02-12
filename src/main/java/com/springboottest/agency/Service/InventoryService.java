@@ -99,8 +99,13 @@ public class InventoryService {
             product.setProductStock(product.getProductStock() - quantity);
             productRepo.save(product);
 
-            SaleUser sale = new SaleUser (quantity, LocalDate.now(), sellingPrice, product);
-            saleRepo.save(sale);
+            SaleUser sale = new SaleUser();
+        sale.setQuantity(quantity);
+        sale.setDate(LocalDate.now()); // or from request
+        sale.setSellingPrice(sellingPrice);
+        sale.setProduct(product);
+
+        saleRepo.save(sale);
         }
     }   
     // // ✅ Update a product-Price
